@@ -1,0 +1,176 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  clerkId   String   @unique @map("clerk_id")
+  name      String
+  email     String   @unique
+  avatarUrl String?  @map("avatar_url")
+  isPaid             Boolean  @default(false) @map("is_paid")
+  stripeCustomerId   String?  @unique @map("stripe_customer_id")
+  stripeSubscriptionId String? @map("stripe_subscription_id")
+  stripePlan         String?  @map("stripe_plan")
+  stripePriceAmount  Int?     @map("stripe_price_amount")
+  billingPeriodEnd   DateTime? @map("billing_period_end")
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  chats              Chat[]
+  records            Record[]
+  transactions       Transaction[]
+  budgets            Budget[]
+  sentInvitations    Invitation[]       @relation("InvitationSender")
+  contactsAsOwner    Contact[]          @relation("ContactOwner")
+  contactsAsContact  Contact[]          @relation("ContactUser")
+  sharedTransactions TransactionShare[]
+
+  @@map("users")
+}
+
+model Chat {
+  id        String   @id @default(uuid())
+  sender    Sender
+  userId    String   @map("user_id")
+  message   String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  records Record[]
+
+  @@map("chats")
+}
+
+model Record {
+  id             String         @id @default(uuid())
+  authorId       String         @map("author_id")
+  messageId      String         @map("message_id")
+  classification Classification
+  amount         Float
+  createdAt      DateTime       @default(now()) @map("created_at")
+  updatedAt      DateTime       @updatedAt @map("updated_at")
+
+  author  User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  message Chat @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@map("records")
+}
+
+model Transaction {
+  id          String          @id @default(uuid())
+  userId      String          @map("user_id")
+  description String
+  amount      Float
+  type        TransactionType
+  category    String
+  date        DateTime        @default(now())
+  createdAt   DateTime        @default(now()) @map("created_at")
+  updatedAt   DateTime        @updatedAt @map("updated_at")
+
+  user     User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sharedWith TransactionShare[]
+
+  @@map("transactions")
+}
+
+model TransactionShare {
+  id            String   @id @default(uuid())
+  transactionId String   @map("transaction_id")
+  userId        String   @map("user_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  transaction Transaction @relation(fields: [transactionId], references: [id], onDelete: Cascade)
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([transactionId, userId])
+  @@map("transaction_shares")
+}
+
+model Invitation {
+  id          String           @id @default(uuid())
+  senderId    String           @map("sender_id")
+  email       String
+  status      InvitationStatus @default(PENDING)
+  token       String           @unique @default(uuid())
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @updatedAt @map("updated_at")
+
+  sender User @relation("InvitationSender", fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@unique([senderId, email])
+  @@map("invitations")
+}
+
+model Contact {
+  id        String   @id @default(uuid())
+  ownerId   String   @map("owner_id")
+  contactId String   @map("contact_id")
+  nickname  String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  owner   User @relation("ContactOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  contact User @relation("ContactUser", fields: [contactId], references: [id], onDelete: Cascade)
+
+  @@unique([ownerId, contactId])
+  @@map("contacts")
+}
+
+model Budget {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  name      String
+  icon      String   @default("💰")
+  budgeted  Float
+  spent     Float    @default(0)
+  color     String   @default("bg-blue-500")
+  month     String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, name, month])
+  @@map("budgets")
+}
+
+model Subscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  active    Boolean  @default(true)
+  token     String   @unique @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("subscribers")
+}
+
+enum Sender {
+  USER
+  AI
+}
+
+enum Classification {
+  INCOME
+  EXPENSE
+  RECURRING
+  BUDGET
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+  TRANSFER
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+}
