@@ -21,12 +21,12 @@ Trinit is an AI-powered personal finance web app. Users can track transactions, 
 
 ## Screenshots
 
-1. ![Screenshot 1](../screenshoots/Screenshot%202026-02-24%20at%204.32.22%20p.m..png)
-2. ![Screenshot 2](../screenshoots/Screenshot%202026-02-24%20at%204.32.36%20p.m..png)
-3. ![Screenshot 3](../screenshoots/Screenshot%202026-02-24%20at%204.32.56%20p.m..png)
-4. ![Screenshot 4](../screenshoots/Screenshot%202026-02-24%20at%204.33.08%20p.m..png)
-5. ![Screenshot 5](../screenshoots/Screenshot%202026-02-24%20at%204.33.30%20p.m..png)
-6. ![Screenshot 6](../screenshoots/Screenshot%202026-02-24%20at%204.33.44%20p.m..png)
+1. ![Dashboard](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.32.22%C2%A0p.m..png)
+2. ![Dashboard Stats](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.32.36%C2%A0p.m..png)
+3. ![Transactions](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.32.56%C2%A0p.m..png)
+4. ![Budget](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.33.08%C2%A0p.m..png)
+5. ![Contacts](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.33.30%C2%A0p.m..png)
+6. ![Settings](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.33.44%C2%A0p.m..png)
 
 ---
 
