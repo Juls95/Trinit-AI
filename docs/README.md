@@ -21,12 +21,12 @@ Trinit is an AI-powered personal finance web app. Users can track transactions, 
 
 ## Screenshots
 
-1. ![Dashboard](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.32.22%C2%A0p.m..png)
-2. ![Dashboard Stats](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.32.36%C2%A0p.m..png)
-3. ![Transactions](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.32.56%C2%A0p.m..png)
-4. ![Budget](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.33.08%C2%A0p.m..png)
-5. ![Contacts](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.33.30%C2%A0p.m..png)
-6. ![Settings](https://github.com/Juls95/Trinit-AI/raw/main/screenshoots/Screenshot%202026-02-24%20at%204.33.44%C2%A0p.m..png)
+1. ![Dashboard](./screenshoots/dashboard_1.png)
+2. ![Dashboard Stats](./screenshoots/dashboard_2.png)
+3. ![Transactions](./screenshoots/transactions.png)
+4. ![Budget](./screenshoots/budget.png)
+5. ![Contacts](./screenshoots/contacts.png)
+6. ![Settings](./screenshoots/settings.png)
 
 ---
 
