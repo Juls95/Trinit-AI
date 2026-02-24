@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Antonio } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import ClerkClientProvider from "@/components/ClerkClientProvider";
 import "./globals.css";
 
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${antonio.variable} font-sans antialiased bg-black text-white`}>
         <ClerkClientProvider>
           {children}
+          <Analytics />
         </ClerkClientProvider>
       </body>
     </html>
