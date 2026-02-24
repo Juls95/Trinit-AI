@@ -19,15 +19,6 @@ Trinit is an AI-powered personal finance web app. Users can track transactions, 
 
 ---
 
-## Screenshots
-
-1. ![Dashboard](./screenshoots/dashboard_1.png)
-2. ![Dashboard Stats](./screenshoots/dashboard_2.png)
-3. ![Transactions](./screenshoots/transactions.png)
-4. ![Budget](./screenshoots/budget.png)
-5. ![Contacts](./screenshoots/contacts.png)
-6. ![Settings](./screenshoots/settings.png)
-
 ---
 
 ## Architecture Overview
