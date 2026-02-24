@@ -11,6 +11,25 @@ Trinit is an AI-powered personal finance web app. Users can track transactions, 
 
 ---
 
+## Pain points we solve
+
+- **Overload and missing tracking of financial movements:** Current society is flooded with subscribing apps and services, making it hard to see where money goes and to keep a clear picture of financial movements.
+- **Rising debt and budget leaks:** Population debt keeps increasing because people struggle to spot spending leaks and lack simple ways to build and stick to a proper budget.
+- **Shared expenses and paybacks:** Tracking money between multiple people (friends, roommates, partners) is messy; we need a way to ensure everyone knows who owes whom and that money is tracked so nothing is forgotten.
+
+---
+
+## Screenshots
+
+1. ![Screenshot 1](../screenshoots/Screenshot%202026-02-24%20at%204.32.22%20p.m..png)
+2. ![Screenshot 2](../screenshoots/Screenshot%202026-02-24%20at%204.32.36%20p.m..png)
+3. ![Screenshot 3](../screenshoots/Screenshot%202026-02-24%20at%204.32.56%20p.m..png)
+4. ![Screenshot 4](../screenshoots/Screenshot%202026-02-24%20at%204.33.08%20p.m..png)
+5. ![Screenshot 5](../screenshoots/Screenshot%202026-02-24%20at%204.33.30%20p.m..png)
+6. ![Screenshot 6](../screenshoots/Screenshot%202026-02-24%20at%204.33.44%20p.m..png)
+
+---
+
 ## Architecture Overview
 
 ```
